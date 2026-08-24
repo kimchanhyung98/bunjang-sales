@@ -38,6 +38,7 @@ hs_err_pid*
 .env.backup
 .env.local
 .env.local.*
+.env.prod*
 .env.production
 .env.production.*
 ENV/
@@ -50,7 +51,8 @@ venv.bak/
 .terraform/
 *.tfstate
 *.tfstate.*
-.terraform.lock.hcl
+*.tfvars
+*.tfvars.json
 .terragrunt-cache/
 .pulumi/
 .aws/
@@ -59,7 +61,6 @@ venv.bak/
 
 # Database
 *.db
-*.sql
 *.bak
 *.sqlite
 
@@ -67,6 +68,7 @@ venv.bak/
 Dockerfile.local
 docker-compose.override.yml
 docker-compose.local.yml
+**/.docker/config.json
 .docker/
 
 # Cache
@@ -85,14 +87,27 @@ docker-compose.local.yml
 *.pem
 *.key
 *.crt
+*.cer
 *.cert
 *.p12
 *.pfx
+*.jks
+*.keystore
 secrets/
 .secrets
 .secrets/
 auth.json
 credentials.json
+application_default_credentials.json
+.ssh/
+.kube/config
+.gnupg/
+.netrc
+.npmrc
+!.npmrc.example
+.git-credentials
+id_rsa*
+id_ed25519*
 
 # IDE
 .idea/
@@ -113,13 +128,6 @@ credentials.json
 *.ipr
 out/
 
-# Local agent installs
-.codex/*
-!.codex/config.toml
-.claude/*
-!.claude/settings.json
-!.claude/memory/
-
 # OS
 .AppleDouble
 .DS_Store*
@@ -138,20 +146,9 @@ Icon?
 $RECYCLE.BIN/
 
 # AI Agent
-.agents/*
-!.agents/plugins/
-!.agents/plugins/**
-!.agents/rules/
-!.agents/rules/**
-!.agents/skills/
-!.agents/skills/**
-!.agents/workflows/
-!.agents/workflows/**
 .aider*
 .air/*
 .amazonq/*
-!.amazonq/rules/
-!.amazonq/rules/**
 .amp/*
 .antigravity/*
 .augment/*
@@ -159,67 +156,39 @@ $RECYCLE.BIN/
 .codebuddy/*
 .crush/logs/
 .cursor/*
-!.cursor/rules/
-!.cursor/rules/**
-!.cursor/skills/
-!.cursor/skills/**
 .devin/*
-.gemini/*
-!.gemini/GEMINI.md
-!.gemini/settings.json
 .goose/*
-!.goose/skills/
-!.goose/skills/**
 .kilocode/*
-!.kilocode/rules/
-!.kilocode/rules/**
-!.kilocode/rules-*/
-!.kilocode/rules-*/**
-!.kilocode/skills/
-!.kilocode/skills/**
-!.kilocode/skills-*/
-!.kilocode/skills-*/**
+.kimi-code/*
+.kiro/*
+.omp/*
 .opencode/*
-!.opencode/agents/
-!.opencode/agents/**
-!.opencode/commands/
-!.opencode/commands/**
-!.opencode/modes/
-!.opencode/modes/**
-!.opencode/plugins/
-!.opencode/plugins/**
-!.opencode/skills/
-!.opencode/skills/**
-!.opencode/themes/
-!.opencode/themes/**
-!.opencode/tools/
-!.opencode/tools/**
 .qwen/*
 .roo/*
-!.roo/rules/
-!.roo/rules/**
-!.roo/rules-*/
-!.roo/rules-*/**
 .windsurf/*
-!.windsurf/rules/
-!.windsurf/rules/**
 
 # Claude
 **/CLAUDE.md
 !/CLAUDE.md
-.claude/commands/speckit.*
-.claude/hooks/.permissions-checked
-.claude/memory/*
-!.claude/memory/.gitkeep
-.claude/plans
-.claude/settings.local.json
-.claude/scheduled_tasks.lock
-.remember
+**/CLAUDE.local.md
+.claude/*
+!.claude/settings.json
+!.claude/hookify.*.md
+!.claude/skills
 
 # Codex
-.codex/commands/speckit.*
-.codex/memory/*
-!.codex/memory/.gitkeep
+.agents/*
+!.agents/skills
+.codex/*
+!.codex/config.toml
+!.codex/hooks.json
+!.codex/hooks
+
+# Gemini
+.gemini/*
+!.gemini/GEMINI.md
+!.gemini/settings.json
+.gemini-clipboard/
 
 # GitHub
 .github/agents/*
@@ -230,11 +199,16 @@ $RECYCLE.BIN/
 .agent-os/
 agent-os/
 
-# Spec-Kit
-.specify/
-.speckit/
-specs/
+# Playwright
+.agent-browser/
+.browser/
+.chrome/
+.next-browser/
+.playwright*
 
 # etc
-.cmux
+.cmux/
+.docs
 .omx/
+.remember
+.serena
