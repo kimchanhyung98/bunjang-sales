@@ -31,6 +31,7 @@ test("root plugin metadata is scoped to Codex, Claude, and macOS", async () => {
 
     assert.equal(plugin.name, "bunjang-assistant");
     assert.equal(plugin.version, "0.4.0");
+    assert.match(plugin.description, /explicit bypass registration/);
     assert.deepEqual(plugin.support.codex, ["codex"]);
     assert.deepEqual(plugin.support.claude, ["claude"]);
     assert.deepEqual(plugin.support.os, ["macos-intel", "macos-apple-silicon"]);
@@ -91,6 +92,7 @@ test("installer metadata excludes unsupported surfaces", async () => {
     const claudePlugin = await readJson(".claude-plugin/plugin.json");
     const claudeManifest = await readJson(".claude-plugin/manifest.json");
     const claudeMarketplace = await readJson(".claude-plugin/marketplace.json");
+    const codexPlugin = await readJson(".codex-plugin/plugin.json");
 
     assert.match(installer, /--tool cli\|codex\|claude\|both/);
     assert.match(installer, /Cursor, Claude Desktop MCP, Windows, and Linux installers are intentionally out of scope/);
@@ -98,11 +100,16 @@ test("installer metadata excludes unsupported surfaces", async () => {
     assert.doesNotMatch(installReadme, /install-cli\.sh|install-plugins\.sh|bootstrap-bunjang\.sh/);
     assert.equal(claudePlugin.commands, "./commands/");
     assert.equal(claudePlugin.version, "0.4.0");
+    assert.match(claudePlugin.description, /explicit bypass registration/);
     assert.equal(claudeManifest.commands, "./commands/");
     assert.equal(claudeManifest.version, "0.4.0");
+    assert.match(claudeManifest.description, /explicit bypass registration/);
     assert.deepEqual(claudeMarketplace.owner, {name: "kimchanhyung98"});
     assert.equal(claudeMarketplace.plugins[0].source, "./");
     assert.equal(claudeMarketplace.plugins[0].version, "0.4.0");
+    assert.match(claudeMarketplace.description, /explicit bypass registration/);
+    assert.match(claudeMarketplace.plugins[0].description, /explicit bypass registration/);
+    assert.match(codexPlugin.description, /explicit bypass registration/);
     assert.match(readme, /codex plugin marketplace add --ref main https:\/\/github\.com\/kimchanhyung98\/bunjang-assistant\.git/);
     assert.match(readme, /codex plugin add bunjang-assistant@bunjang-assistant/);
     assert.match(aiInstall, /codex plugin marketplace add --ref main https:\/\/github\.com\/kimchanhyung98\/bunjang-assistant\.git/);

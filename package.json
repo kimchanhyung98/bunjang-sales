@@ -2,7 +2,7 @@
   "name": "bunjang-assistant",
   "version": "0.4.0",
   "private": true,
-  "description": "Bunjang assistant for Codex and Claude on macOS — market price lookup, listing search and ranking, chat and favorites management, and sales draft generation.",
+  "description": "Bunjang assistant for Codex and Claude on macOS — market price lookup, listing search and ranking, chat and favorites management, sales drafting, and explicit bypass registration.",
   "type": "module",
   "bin": {
     "bunjang-assistant": "./install/bunjang-assistant-install.mjs",

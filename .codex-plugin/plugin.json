@@ -1,7 +1,7 @@
 {
   "name": "bunjang-assistant",
   "version": "0.4.0",
-  "description": "Run Bunjang tasks from Codex on macOS — market price lookup, listing search and ranking, chat and favorites management, and sales draft generation.",
+  "description": "Run Bunjang tasks from Codex on macOS — market price lookup, listing search and ranking, chat and favorites management, sales drafting, and explicit bypass registration.",
   "author": {
     "name": "kimchanhyung98",
     "url": "https://github.com/kimchanhyung98"
@@ -24,15 +24,15 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "bunjang assistant",
-    "shortDescription": "Bunjang assistant for Codex on macOS — market price, search, chat, favorites, and sales drafts.",
-    "longDescription": "Bunjang assistant for Codex on macOS. Run market price lookups, listing search and ranking, chat and favorites management, and sales draft generation through natural-language requests. Short aliases such as 번개장터툴, 번개장터 도구, bunjang tool, and bunjang assistant route to the same entrypoint.",
+    "shortDescription": "Bunjang assistant for Codex on macOS — market price, search, chat, sales drafting, and bypass registration.",
+    "longDescription": "Bunjang assistant for Codex on macOS. Run market price lookups, listing search and ranking, chat and favorites management, sales drafting, and explicit bypass registration through natural-language requests. Short aliases such as 번개장터툴, 번개장터 도구, bunjang tool, and bunjang assistant route to the same entrypoint.",
     "developerName": "kimchanhyung98",
     "category": "developer-tools",
     "capabilities": [
       "market price lookup",
       "listing search and ranking",
       "chat and favorites management",
-      "safe sales draft guidance"
+      "sales drafting and explicit bypass registration"
     ],
     "websiteURL": "https://github.com/kimchanhyung98/bunjang-assistant",
     "defaultPrompt": [
