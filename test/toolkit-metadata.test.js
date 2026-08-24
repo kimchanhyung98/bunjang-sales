@@ -53,6 +53,7 @@ test("public bunjang skill routes price and sales draft requests", async () => {
     const fixture = await readJson("skills/bunjang/references/fixtures/search-result.json");
     const price = await readText("skills/bunjang/references/price.md");
     const sales = await readText("skills/bunjang/references/sales.md");
+    const browser = await readText("skills/bunjang/references/browser.md");
     const aiContext = await readText("skills/bunjang/references/ai-context.md");
     const template = await readText("skills/bunjang/references/template.md");
 
@@ -69,6 +70,9 @@ test("public bunjang skill routes price and sales draft requests", async () => {
     assert.match(sales, /A 디렉토리의 상품들/);
     assert.match(sales, /저장소의 기본 상품 폴더를 가정하지 말고/);
     assert.match(sales, /등록하기/);
+    assert.match(skill, /bypass 모드/);
+    assert.match(sales, /bypass 모드/);
+    assert.match(browser, /자동으로 다시 클릭하지/);
     assert.match(aiContext, /사용자가 지정한 상품 루트/);
     assert.match(aiContext, /스킬 내부 리소스/);
     assert.match(aiContext, /가격 근거 부족\(확인 필요\)/);
